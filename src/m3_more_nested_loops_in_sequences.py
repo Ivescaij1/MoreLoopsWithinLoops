@@ -44,11 +44,11 @@ def run_test_largest_number():
     print('Expected and actual are:', expected, answer)
 
     # TO DO 2 (continued): Add your ADDITIONAL test(s) here:
-    # Test 1:
+    # Test 4:
     expected = 1
-    answer = largest_number([(1),
-                             (1),
-                             [1]])
+    answer = largest_number([(1, 2, 3),
+                             (-1, -2, -3),
+                             [0]])
     print('Expected and actual are:', expected, answer)
 
 
@@ -78,9 +78,20 @@ def largest_number(seq_seq):
     where each subsequence contains only numbers.
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
+    max_num = - float('inf')
+
+    for i in range(len(seq_seq)):
+        for j in range(len(seq_seq[i])):
+            if seq_seq[i][j] > max_num:
+                max_num = seq_seq[i][j]
+
+    if max_num != - float('inf'):
+        return max_num
+    else:
+        return None
 
 
 def run_test_largest_negative_number():
